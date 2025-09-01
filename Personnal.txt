@@ -1,0 +1,4 @@
+bash: sed: command not found
+Email: employee@gmail.com
+Password: 1234
+Password (again):
