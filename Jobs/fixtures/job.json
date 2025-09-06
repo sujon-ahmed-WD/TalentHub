@@ -1,0 +1,475 @@
+[
+  {
+    "model": "Jobs.category",
+    "pk": 1,
+    "fields": { "name": "Software Development" }
+  },
+  { "model": "Jobs.category", "pk": 2, "fields": { "name": "Data Science" } },
+  { "model": "Jobs.category", "pk": 3, "fields": { "name": "UX/UI Design" } },
+  {
+    "model": "Jobs.category",
+    "pk": 4,
+    "fields": { "name": "Digital Marketing" }
+  },
+  { "model": "Jobs.category", "pk": 5, "fields": { "name": "DevOps" } },
+  { "model": "Jobs.category", "pk": 6, "fields": { "name": "Healthcare" } },
+  { "model": "Jobs.category", "pk": 7, "fields": { "name": "Finance" } },
+  { "model": "Jobs.category", "pk": 8, "fields": { "name": "Education" } },
+  {
+    "model": "Jobs.category",
+    "pk": 9,
+    "fields": { "name": "Content Writing" }
+  },
+  { "model": "Jobs.category", "pk": 10, "fields": { "name": "Management" } },
+
+  {
+    "model": "Jobs.job",
+    "pk": 1,
+    "fields": {
+      "employer": 1,
+      "title": "Senior Software Engineer",
+      "requirements": "5+ years experience with Python/Django",
+      "company_name": "Tech Innovators Inc.",
+      "description": "Develop and maintain web applications using Python and Django.",
+      "location": "Dhaka",
+      "salary": 165000.0,
+      "published_date": "2024-09-01",
+      "category_name": 1
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 2,
+    "fields": {
+      "employer": 1,
+      "title": "Data Scientist",
+      "requirements": "3+ years experience in Data Science",
+      "company_name": "Global Solutions Ltd.",
+      "description": "Analyze large datasets and build ML models.",
+      "location": "Chattogram",
+      "salary": 140000.0,
+      "published_date": "2024-08-30",
+      "category_name": 2
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 3,
+    "fields": {
+      "employer": 1,
+      "title": "UX/UI Designer",
+      "requirements": "2+ years experience in UX/UI Design",
+      "company_name": "Tech Innovators Inc.",
+      "description": "Create intuitive user experiences and design prototypes.",
+      "location": "Dhaka",
+      "salary": 95000.0,
+      "published_date": "2024-08-28",
+      "category_name": 3
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 4,
+    "fields": {
+      "employer": 1,
+      "title": "Digital Marketing Specialist",
+      "requirements": "4+ years experience in Digital Marketing",
+      "company_name": "Creative Agency Co.",
+      "description": "Plan and execute digital marketing campaigns.",
+      "location": "Khulna",
+      "salary": 75000.0,
+      "published_date": "2024-08-25",
+      "category_name": 4
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 5,
+    "fields": {
+      "employer": 1,
+      "title": "DevOps Engineer",
+      "requirements": "3+ years experience as DevOps Engineer",
+      "company_name": "Global Solutions Ltd.",
+      "description": "Manage and automate cloud infrastructure.",
+      "location": "Chattogram",
+      "salary": 155000.0,
+      "published_date": "2024-08-20",
+      "category_name": 5
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 6,
+    "fields": {
+      "employer": 1,
+      "title": "Clinical Research Coordinator",
+      "requirements": "Bachelor's degree in life science",
+      "company_name": "HealthCorp",
+      "description": "Coordinate and manage clinical trials.",
+      "location": "Sylhet",
+      "salary": 85000.0,
+      "published_date": "2024-08-18",
+      "category_name": 6
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 7,
+    "fields": {
+      "employer": 1,
+      "title": "Financial Analyst",
+      "requirements": "Bachelor's degree in Finance",
+      "company_name": "Financial Services Group",
+      "description": "Conduct financial modeling and analysis.",
+      "location": "Dhaka",
+      "salary": 90000.0,
+      "published_date": "2024-08-15",
+      "category_name": 7
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 8,
+    "fields": {
+      "employer": 1,
+      "title": "High School Teacher",
+      "requirements": "Bachelor's in Education or Math",
+      "company_name": "Education First",
+      "description": "Teach mathematics to high school students.",
+      "location": "Rajshahi",
+      "salary": 50000.0,
+      "published_date": "2024-08-12",
+      "category_name": 8
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 9,
+    "fields": {
+      "employer": 1,
+      "title": "Content Writer",
+      "requirements": "Excellent writing skills",
+      "company_name": "EduTech Solutions",
+      "description": "Create engaging content for educational platform.",
+      "location": "Rajshahi",
+      "salary": 55000.0,
+      "published_date": "2024-08-10",
+      "category_name": 9
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 10,
+    "fields": {
+      "employer": 1,
+      "title": "Product Manager",
+      "requirements": "3+ years experience as Product Manager",
+      "company_name": "Tech Innovators Inc.",
+      "description": "Define product vision and strategy.",
+      "location": "Dhaka",
+      "salary": 145000.0,
+      "published_date": "2024-08-05",
+      "category_name": 10
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 11,
+    "fields": {
+      "employer": 1,
+      "title": "Graphic Designer",
+      "requirements": "2+ years experience in graphic design",
+      "company_name": "Creative Agency Co.",
+      "description": "Design visual content for marketing materials.",
+      "location": "Khulna",
+      "salary": 60000.0,
+      "published_date": "2024-08-01",
+      "category_name": 3
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 12,
+    "fields": {
+      "employer": 1,
+      "title": "Real Estate Agent",
+      "requirements": "Valid real estate license",
+      "company_name": "Real Estate Partners",
+      "description": "Assist clients with buying and selling properties.",
+      "location": "Dhaka",
+      "salary": 70000.0,
+      "published_date": "2024-07-28",
+      "category_name": 10
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 13,
+    "fields": {
+      "employer": 1,
+      "title": "Hotel Manager",
+      "requirements": "5+ years in hotel management",
+      "company_name": "Hospitality Group",
+      "description": "Oversee all hotel operations.",
+      "location": "Cox's Bazar",
+      "salary": 105000.0,
+      "published_date": "2024-07-25",
+      "category_name": 10
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 14,
+    "fields": {
+      "employer": 1,
+      "title": "Mechanical Engineer",
+      "requirements": "Bachelor's in Mechanical Engineering",
+      "company_name": "Manufacturing Solutions",
+      "description": "Design, develop, and test mechanical systems.",
+      "location": "Gazipur",
+      "salary": 85000.0,
+      "published_date": "2024-07-20",
+      "category_name": 1
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 15,
+    "fields": {
+      "employer": 1,
+      "title": "Logistics Coordinator",
+      "requirements": "2+ years in logistics",
+      "company_name": "E-commerce Hub",
+      "description": "Manage flow of goods from suppliers to customers.",
+      "location": "Dhaka",
+      "salary": 60000.0,
+      "published_date": "2024-07-18",
+      "category_name": 10
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 16,
+    "fields": {
+      "employer": 1,
+      "title": "Frontend Developer",
+      "requirements": "3+ years in React.js",
+      "company_name": "Tech Innovators Inc.",
+      "description": "Build and maintain web interfaces using React.",
+      "location": "Dhaka",
+      "salary": 105000.0,
+      "published_date": "2024-07-15",
+      "category_name": 1
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 17,
+    "fields": {
+      "employer": 1,
+      "title": "Network Administrator",
+      "requirements": "3+ years in network administration",
+      "company_name": "Global Solutions Ltd.",
+      "description": "Manage and maintain network infrastructure.",
+      "location": "Chattogram",
+      "salary": 85000.0,
+      "published_date": "2024-07-12",
+      "category_name": 5
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 18,
+    "fields": {
+      "employer": 1,
+      "title": "Architect",
+      "requirements": "Bachelor's/Master's in Architecture",
+      "company_name": "Architectural Design Studio",
+      "description": "Design commercial and residential buildings.",
+      "location": "Sylhet",
+      "salary": 110000.0,
+      "published_date": "2024-07-10",
+      "category_name": 1
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 19,
+    "fields": {
+      "employer": 1,
+      "title": "Backend Developer",
+      "requirements": "3+ years in Node.js or similar",
+      "company_name": "Tech Innovators Inc.",
+      "description": "Build server-side logic and APIs.",
+      "location": "Dhaka",
+      "salary": 115000.0,
+      "published_date": "2024-07-05",
+      "category_name": 1
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 20,
+    "fields": {
+      "employer": 1,
+      "title": "Video Editor",
+      "requirements": "2+ years in video editing",
+      "company_name": "Media House",
+      "description": "Edit video content for social media and marketing campaigns.",
+      "location": "Dhaka",
+      "salary": 55000.0,
+      "published_date": "2024-07-01",
+      "category_name": 9
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 21,
+    "fields": {
+      "employer": 1,
+      "title": "Civil Engineer",
+      "requirements": "Bachelor's in Civil Engineering",
+      "company_name": "Civil Engineering & Construction",
+      "description": "Plan and oversee construction projects.",
+      "location": "Bogra",
+      "salary": 88000.0,
+      "published_date": "2024-06-28",
+      "category_name": 1
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 22,
+    "fields": {
+      "employer": 1,
+      "title": "Registered Nurse (RN)",
+      "requirements": "Valid RN license",
+      "company_name": "Healthcare Partners",
+      "description": "Provide patient care in hospital setting.",
+      "location": "Dhaka",
+      "salary": 65000.0,
+      "published_date": "2024-06-25",
+      "category_name": 6
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 23,
+    "fields": {
+      "employer": 1,
+      "title": "Store Manager",
+      "requirements": "3+ years in retail management",
+      "company_name": "Retail Store",
+      "description": "Oversee daily store operations and staff.",
+      "location": "Chattogram",
+      "salary": 75000.0,
+      "published_date": "2024-06-20",
+      "category_name": 10
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 24,
+    "fields": {
+      "employer": 1,
+      "title": "Paralegal",
+      "requirements": "Associate degree or certificate in Paralegal Studies",
+      "company_name": "Law Firm",
+      "description": "Assist attorneys with legal research and documentation.",
+      "location": "Dhaka",
+      "salary": 60000.0,
+      "published_date": "2024-06-18",
+      "category_name": 7
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 25,
+    "fields": {
+      "employer": 1,
+      "title": "HR Specialist",
+      "requirements": "3+ years in human resources",
+      "company_name": "Corporate Solutions",
+      "description": "Manage employee relations and recruitment.",
+      "location": "Dhaka",
+      "salary": 70000.0,
+      "published_date": "2024-06-15",
+      "category_name": 10
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 26,
+    "fields": {
+      "employer": 1,
+      "title": "AI Engineer",
+      "requirements": "2+ years in AI/ML projects",
+      "company_name": "Tech Innovators Inc.",
+      "description": "Develop AI models and deploy solutions.",
+      "location": "Dhaka",
+      "salary": 150000.0,
+      "published_date": "2024-06-10",
+      "category_name": 2
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 27,
+    "fields": {
+      "employer": 1,
+      "title": "Marketing Manager",
+      "requirements": "5+ years experience",
+      "company_name": "Creative Agency Co.",
+      "description": "Lead marketing team and campaigns.",
+      "location": "Khulna",
+      "salary": 120000.0,
+      "published_date": "2024-06-05",
+      "category_name": 4
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 28,
+    "fields": {
+      "employer": 1,
+      "title": "SEO Specialist",
+      "requirements": "3+ years SEO experience",
+      "company_name": "Digital Marketing Ltd.",
+      "description": "Optimize website content for search engines.",
+      "location": "Dhaka",
+      "salary": 85000.0,
+      "published_date": "2024-06-01",
+      "category_name": 4
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 29,
+    "fields": {
+      "employer": 1,
+      "title": "Instructional Designer",
+      "requirements": "Experience in designing e-learning courses",
+      "company_name": "EduTech Solutions",
+      "description": "Design engaging online learning experiences.",
+      "location": "Rajshahi",
+      "salary": 65000.0,
+      "published_date": "2024-05-28",
+      "category_name": 8
+    }
+  },
+  {
+    "model": "Jobs.job",
+    "pk": 30,
+    "fields": {
+      "employer": 1,
+      "title": "Full Stack Developer",
+      "requirements": "3+ years in full stack development",
+      "company_name": "Tech Innovators Inc.",
+      "description": "Develop both frontend and backend applications.",
+      "location": "Dhaka",
+      "salary": 140000.0,
+      "published_date": "2024-05-25",
+      "category_name": 1
+    }
+  }
+]
