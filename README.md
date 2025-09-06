@@ -1,119 +1,195 @@
-# Job Portal Project
+
+# Job Portal Django Project
 
 ## Overview
-A Job Portal application with two types of users: **Employers** and **Job Seekers**.  
-Users can register, login, and perform actions based on their roles. Features include job listings, applications, dashboards, resume management, and email notifications.
+
+This project is a **Job Portal** built with Django and Django REST Framework (DRF) that allows **Employers** to post jobs and **Job Seekers** to browse and apply for jobs. The platform supports user authentication, email verification, role-based access, and job management.
+
+![Job Portal Overview]
+*Diagram: High-level workflow of the job portal*
 
 ---
 
 ## Features
 
-### 1. User Authentication (10 Marks)
-- Roles: Employer, Job Seeker
-- User registration, login, and logout
-- Email verification after registration
-- Only verified users can log in
+1. **User Authentication**
 
-### 2. Job Listings (5 Marks)
-- Employers can create job listings
-- Display key information: job title, company name, date posted
-- Filter jobs by category
+   * Two roles: **Employer** and **Job Seeker**
+   * Registration, login, logout
+   * Email verification after registration
+   * Only verified users can log in
 
-### 3. Job Details (5 Marks)
-- View detailed job information
-- Job Seekers can apply with resume and other details
+![Authentication Flow] 
+*Diagram: How user authentication and verification work*
 
-### 4. User Dashboard (20 Marks)
-- **Employer Dashboard:**
-  - Manage posted jobs
-  - View applications received
-  - Update job details
-- **Job Seeker Dashboard:**
-  - Track job applications
-  - Update resumes and profile
+2. **Job Listings**
 
-### 5. Job Categories (5 Marks)
-- Categorize jobs by industries (e.g., IT, Healthcare, Finance)
-- Filter job listings by category
+   * Employers can create, update, and delete job postings
+   * Job Seekers can view job listings
+   * Filter and search jobs by title, category, location, etc.
 
-### 6. Email Notifications (5 Marks)
-- Notify Job Seekers on successful application
-- Notify Employers on new application
+![Job Management] 
+*Diagram: Job CRUD operations*
 
-### 7. Resume Management (10 Marks)
-- Upload, update, and delete resumes
-- Resumes stored securely
+3. **Job Applications**
 
-### 8. Application Status Tracking (10 Marks)
-- Track application status (Pending, Reviewed, Rejected, Accepted)
-- Employers can update application status
+   * Job Seekers can apply for jobs
+   * Employers can view applications for their posted jobs
 
-### 9. Employer Reviews (5 Marks)
-- Job Seekers can leave reviews
-- Reviews include ratings and comments
+![Application Flow]
+*Diagram: Job application workflow*
 
-### 10. Deployment and Submission (5 Marks)
-- Deployed on secure hosting platform
-- Proper documentation included
+4. **Categories**
 
-### 11. Future Payment Gateway Integration (Placeholder)
-- Potential support for premium features:
-  - Featured Job Listings
-  - Advanced recruitment tools
-  - Payment history and invoices
+   * Jobs can be categorized
+   * CRUD operations for categories (for admin/employer)
+
+5. **Permissions**
+
+   * Role-based access:
+
+     * Only Employers can create jobs
+     * Only Job Seekers can apply
+     * Admin can manage everything
 
 ---
 
 ## API Endpoints
 
-### Authentication
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST   | `/api/register/` | Register a new user |
-| POST   | `/api/login/` | Login user |
-| POST   | `/api/logout/` | Logout user |
-| GET    | `/api/verify-email/<token>/` | Verify user email |
+> Base URL: `/api/`
 
-### Jobs
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET    | `/api/jobs/` | List all jobs |
-| POST   | `/api/jobs/` | Create a job (Employer only) |
-| GET    | `/api/jobs/<id>/` | Job details |
-| PUT    | `/api/jobs/<id>/` | Update job details (Employer only) |
-| DELETE | `/api/jobs/<id>/` | Delete job (Employer only) |
+### 1. Authentication
 
-### Applications
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST   | `/api/jobs/<id>/apply/` | Apply for a job |
-| GET    | `/api/applications/` | View user applications |
-| PUT    | `/api/applications/<id>/status/` | Update application status (Employer only) |
+| Method | Endpoint                        | Description         |
+| ------ | ------------------------------- | ------------------- |
+| POST   | `/auth/register/`               | Register a new user |
+| POST   | `/auth/login/`                  | User login          |
+| POST   | `/auth/logout/`                 | User logout         |
+| GET    | `/auth/verify-email/?token=...` | Verify user email   |
 
-### Resumes
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST   | `/api/resumes/` | Upload resume |
-| GET    | `/api/resumes/` | List resumes |
-| PUT    | `/api/resumes/<id>/` | Update resume |
-| DELETE | `/api/resumes/<id>/` | Delete resume |
+### 2. Job Management
 
-### Reviews
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST   | `/api/employers/<id>/reviews/` | Leave a review for an employer |
-| GET    | `/api/employers/<id>/reviews/` | List all reviews for an employer |
+| Method | Endpoint                 | Description                      |
+| ------ | ------------------------ | -------------------------------- |
+| GET    | `/jobs/`                 | List all jobs                    |
+| POST   | `/jobs/create/`          | Create a new job (Employer only) |
+| GET    | `/jobs/<job_id>/`        | Retrieve job details             |
+| PUT    | `/jobs/<job_id>/update/` | Update job (Employer only)       |
+| DELETE | `/jobs/<job_id>/delete/` | Delete job (Employer only)       |
+
+### 3. Job Applications
+
+| Method | Endpoint                       | Description                                 |
+| ------ | ------------------------------ | ------------------------------------------- |
+| POST   | `/jobs/<job_id>/apply/`        | Apply for a job (Job Seeker only)           |
+| GET    | `/jobs/<job_id>/applications/` | List applications for a job (Employer only) |
+
+### 4. Categories
+
+| Method | Endpoint                   | Description                          |
+| ------ | -------------------------- | ------------------------------------ |
+| GET    | `/categories/`             | List all categories                  |
+| POST   | `/categories/create/`      | Create new category (Admin/Employer) |
+| PUT    | `/categories/<id>/update/` | Update category (Admin/Employer)     |
+| DELETE | `/categories/<id>/delete/` | Delete category (Admin/Employer)     |
+
+---
+
+## Example Requests
+
+### Register User
+
+```bash
+POST /api/auth/register/
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "job_seeker"
+}
+```
+
+### Create Job
+
+```bash
+POST /api/jobs/create/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "title": "Python Developer",
+  "description": "We are looking for a Python Developer...",
+  "category": 1,
+  "location": "Dhaka",
+  "salary": "50000"
+}
+```
+
+### Apply for Job
+
+```bash
+POST /api/jobs/5/apply/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "resume": "resume.pdf",
+  "cover_letter": "I am interested in this position..."
+}
+```
 
 ---
 
 ## Installation
 
+1. Clone the repository:
+
 ```bash
-git clone <repository-url>
+git clone <repo-url>
 cd job-portal
+```
+
+2. Create virtual environment:
+
+```bash
 python -m venv env
-source env/bin/activate  # Linux/Mac
-env\Scripts\activate     # Windows
+source env/bin/activate  # On Windows: env\Scripts\activate
+```
+
+3. Install dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+
+4. Apply migrations:
+
+```bash
 python manage.py migrate
+```
+
+5. Create superuser:
+
+```bash
+python manage.py createsuperuser
+```
+
+6. Run server:
+
+```bash
 python manage.py runserver
+```
+
+---
+
+## Notes
+
+* Make sure email backend is configured for email verification.
+* Use DRF's browsable API or Postman to test endpoints.
+* Pagination, search, and filters can be added via query parameters.
+
+---
+
+
