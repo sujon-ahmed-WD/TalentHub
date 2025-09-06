@@ -1,6 +1,8 @@
 from datetime import timedelta
 from pathlib import Path
 from decouple import config
+import cloudinary
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,14 +15,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0-besw#gyrt6on+o&9m$3_$!lpi!a&b&^un)kkat=gxh=j&foy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".vercel.app",'127.0.0.1']
+AUTH_USER_MODEL ='users.User'
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -28,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'drf_yasg',
     'django_filters',
     'Jobs',
     'api',
@@ -38,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -45,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-AUTH_USER_MODEL ='users.User'
 
 ROOT_URLCONF = 'TelentHub_project.urls'
 
@@ -64,21 +70,37 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TelentHub_project.wsgi.application'
+WSGI_APPLICATION = 'TelentHub_project.wsgi.app'
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE ="whitenoise.storage.CompressedStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('dbname'),
+        'USER': config('user'),
+        'PASSWORD':config('password'),
+        'HOST': config('host'),
+        'PORT': config('port')
     }
 }
+
 
 
 # Password validation
@@ -115,7 +137,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -151,3 +172,24 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS',cast=bool)
 EMAIL_PORT =config('EMAIL_PORT',cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD =config('EMAIL_HOST_PASSWORD')
+
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+      'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description':'Enter your JWT token in the format: `JWT<your token>` '
+      }
+   }
+}
+# ---------- Cloudinary Configuration-----
+# Configuration       
+cloudinary.config( 
+    cloud_name = config('Cloud_name'), 
+    api_key = config('API_key'), 
+    api_secret = config('API_secret'), # Click 'View API Keys' above to copy your API secret
+    secure=True
+)
+# Media file storage
+DEFAULT_FILE_STORAGE ='cloudinary_storage .storage.storage.MediaCloudinaryStorage '
