@@ -15,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0-besw#gyrt6on+o&9m$3_$!lpi!a&b&^un)kkat=gxh=j&foy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app",'127.0.0.1']
+ALLOWED_HOSTS = [".vercel.app",'127.0.0.1','https://talent-hub-pearl.vercel.app/']
 AUTH_USER_MODEL ='users.User'
 
 
