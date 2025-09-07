@@ -83,23 +83,23 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': config('dbname'),
-#         'USER': config('user'),
-#         'PASSWORD':config('password'),
-#         'HOST': config('host'),
-#         'PORT': config('port')
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('dbname'),
+        'USER': config('user'),
+        'PASSWORD':config('password'),
+        'HOST': config('host'),
+        'PORT': config('port')
+    }
+}
 
 
 
